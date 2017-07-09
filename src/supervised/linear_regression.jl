@@ -5,7 +5,7 @@ function Model(a::LinearRegression)::Model
 end
 
 function predict(a::LinearRegression, θ, x)
-  θ * x'
+  θ*x'
 end
 
 function learn!(m::Model, x, y; args...)
