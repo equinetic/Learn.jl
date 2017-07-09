@@ -2,7 +2,7 @@
 
 - **Supervised Algorithms**
   - [x] Linear Regression
-  - [ ] Logistic Regression
+  - [x] Logistic Regression
   - [ ] GLM
   - [ ] GLRM
   - [ ] Gradient Boosting Tree
@@ -32,3 +32,4 @@
   - [ ] ROC Curve
 - **Tests**
   - [ ] Linear Regression
+  - [ ] Logistic Regression

@@ -10,6 +10,7 @@ Machine learning package with implementations of common algorithms and technique
 
 - **Supervised Algorithms**
   - Linear Regression
+  - Logistic Regression
 
 ## Planned
 - **Algorithms**: Reimplementation of [LightML.jl](https://github.com/memoiry/LightML.jl) models
