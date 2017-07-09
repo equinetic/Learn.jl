@@ -1,0 +1,34 @@
+# TODO
+
+- **Supervised Algorithms**
+  - [x] Linear Regression
+  - [ ] Logistic Regression
+  - [ ] GLM
+  - [ ] GLRM
+  - [ ] Gradient Boosting Tree
+  - [ ] AdaBoost
+  - [ ] Decision Tree
+  - [ ] Random Forests
+  - [ ] Gaussian Discriminant Analysis
+  - [ ] Hidden Markov Model
+  - [ ] K-Nearest Neighbors
+  - [ ] Naive Bayes
+  - [ ] Multilayer Perceptron
+  - [ ] Support Vector Machine
+- **Unsupervised Algorithms**
+  - [ ] Gaussian Mixture Model
+  - [ ] K-Means
+  - [ ] Large Scale Spectral Clustering
+  - [ ] PCA
+- **Extended Capabilities**
+  - [ ] Ensemble
+  - [ ] Boosting
+  - [ ] Bagging
+  - [ ] Complete binning.jl
+  - [ ] Complete scaling.jl
+  - [ ] Wrap MLDataUtils.jl, primarily for partitioning
+  - [ ] Create pipeline function/macro
+  - [ ] Learning Curves
+  - [ ] ROC Curve
+- **Tests**
+  - [ ] Linear Regression
