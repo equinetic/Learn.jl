@@ -8,7 +8,7 @@ function solve!(s::GradientDescent,
     obj_cost(m.objective, y, predict(m.algorithm, shape_theta(wts, shape), x))
   end
 
-  function g!(wts::Vector, storage::Vector)
+  function g!(storage::Vector, wts::Vector)
     g = vec(obj_grad(m.objective, y, predict(m.algorithm, shape_theta(wts, shape), x), x))
     for i in eachindex(g)
       storage[i] = g[i]
