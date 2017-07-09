@@ -18,6 +18,11 @@ using Learn
 - **Supervised Algorithms**
   - Linear Regression
   - Logistic Regression
+- **Utilities**
+  - Quantile and numeric binning
+  - Feature scaling
+
+Reexports [LossFunctions](https://github.com/JuliaML/LossFunctions.jl), [PenaltyFunctions](https://github.com/JuliaML/PenaltyFunctions.jl), and [MLDataUtils](https://github.com/JuliaML/MLDataUtils.jl). See their pages for detailed documentation.
 
 ## Planned
 - **Algorithms**: Reimplementation of [LightML.jl](https://github.com/memoiry/LightML.jl) models
