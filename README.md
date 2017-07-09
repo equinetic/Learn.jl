@@ -4,7 +4,7 @@
 
 ## Overview
 
-Machine learning package with implementations for common algorithms and techniques.
+Machine learning package with implementations of common algorithms and techniques.
 
 ## Current Capabilities
 

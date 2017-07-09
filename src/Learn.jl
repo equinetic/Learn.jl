@@ -1,10 +1,10 @@
+#__precompile__()
 module Learn
 
-
 using   Reexport
-
-@reexport using LossFunctions,
-                PenaltyFunctions
+@reexport using LossFunctions
+@reexport using PenaltyFunctions
+@reexport using MLDataUtils
 
 using   Optim
 
@@ -58,5 +58,6 @@ end
 function cost(m::Model, x, y)
   obj_cost(m.objective, y, predict(m, x))
 end
+
 
 end

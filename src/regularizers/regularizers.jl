@@ -2,30 +2,41 @@
 mutable struct Penalty
   func
   λ::Float64
+  intercept::Bool
   function Penalty()
-    new(NoPenalty(), 0.0)
+    new(NoPenalty(), 0.0, false)
   end
-  function Penalty(f, λ::Float64=0.0)
-    new(f, λ)
+  function Penalty(f, λ::Float64=0.0, intercept::Bool=false)
+    new(f, λ, intercept)
   end
 end
 
 # Penalty cost
 function penalty(p::Penalty, θ)
-  p.λ * value.(p.func, θ)
+  pen = zeros(size(θ))
+  pen .= value.(p.func, θ)
+  if p.intercept pen[1] = 0. end
+  p.λ * pen
 end
 
 # Penalty gradient
 function penalty_grad(p::Penalty, θ)
-  p.λ * grad(p.func, θ)
+  pen = grad(p.func, θ)
+  if p.intercept pen[1] = 0. end
+  p.λ * pen
 end
 
 # Penalty cost with scale
 function penalty(p::Penalty, θ, s)
-  p.λ * value.(p.func, θ, s)
+  pen = zeros(size(θ))
+  pen .= value.(p.func, θ, s)
+  if p.intercept pen[1] = 0. end
+  p.λ * pen
 end
 
 # Penalty gradient with scale
 function penalty_grad(p::Penalty, θ, s)
-  p.λ * grad(p.func, θ, s)
+  pen = grad(p.func, θ, s)
+  if p.intercept pen[1] = 0. end
+  p.λ * pen
 end

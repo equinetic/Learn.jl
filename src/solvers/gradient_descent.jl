@@ -17,6 +17,6 @@ function solve!(s::GradientDescent,
 
   shape = size(m.weights)
   wts = vec(m.weights)
-  res = optimize(j, g!, wts, Optim.GradientDescent())
+  res = optimize(j, g!, wts, Optim.GradientDescent(), Optim.Options(args...))
   m.weights = reshape(res.minimizer, shape)
 end
