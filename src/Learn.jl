@@ -29,7 +29,22 @@ export  Model,
         # High level API
         predict,
         learn!,
-        cost
+        cost,
+
+        # Utilities
+        onehot,
+        unhot,
+        
+        QuantileBinner,
+        NumericBinner,
+
+        FeatureScaler,
+          StandardizeScaler,
+            standardize,
+          RescaleScaler,
+            rescale,
+          UnitLengthScaler,
+            unitlength
 
 # Parent types
 abstract type Algorithm end
@@ -48,9 +63,12 @@ mutable struct Model
   solver::S where S <: Solver
 end
 
-# Include solvers, implementations
+# Include solvers, implementations, utilities
 include(joinpath("solvers", "solvers.jl"))
 include(joinpath("supervised", "supervised.jl"))
+include(joinpath("utils", "utils.jl"))
+include(joinpath("utils", "binning.jl"))
+include(joinpath("utils", "scaling.jl"))
 
 # API
 function predict(m::Model, x)

@@ -1,6 +1,6 @@
 # TODO: use typealias Union{} for ::ScalerParams, :Scaler etc.
 
-struct FeatureScaler
+mutable struct FeatureScaler
     scalefun
     params
 end
@@ -9,7 +9,7 @@ end
 # API
 # ========================
 
-function train!(scaler::FeatureScaler,
+function learn!(scaler::FeatureScaler,
                 X::AbstractVecOrMat)::FeatureScaler
     scaler.params = scaler.scalefun(X)
     scaler
@@ -25,7 +25,7 @@ end
 
 # ++++++ Standardize +++++++
 
-struct StandardizeParams
+mutable struct StandardizeParams
     μ::AbstractFloat
     σ::AbstractFloat
 end
@@ -58,7 +58,7 @@ end
 
 # ++++++ Rescale +++++++
 
-struct RescaleParams{T}
+mutable struct RescaleParams{T}
     xmin::T
     xmax::T
 end
@@ -91,7 +91,7 @@ end
 
 # ++++++ Unit Length +++++++
 
-struct UnitLengthParams
+mutable struct UnitLengthParams
     euclidlength::Int
 end
 
