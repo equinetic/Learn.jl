@@ -2,17 +2,17 @@ using Learn, RDatasets, Plots
 gr()
 
 # Data
-x = hcat(ones(25), rand(25, 3))
-truth_theta = [2.5, 1.4, 2.8, 3.6]'
-y = truth_theta*x'
-theta = randn(1, size(x, 2))
+mtcars = dataset("datasets", "mtcars")
+
+x = Matrix(mtcars[:, 3:end])
+y = Matrix(mtcars[:, :MPG]')'
 
 model = Model(LinearRegression())
-model.weights = theta
+model.weights = zeros(1, size(x, 2))
 
-predict(model, x)
 learn!(model, x, y)
 cost(model, x, y)
 
-println("Truth: ", truth_theta)
-println("Learned: ", model.weights)
+yh = predict(model, x)
+scatter(1:32, vec(y), label="MPG", title="MTCARS MPG", ylab="MPG", xlab="Record")
+plot!(vec(yh), m=3, c="red", label="Predicted")

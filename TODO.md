@@ -1,4 +1,6 @@
 # TODO
+- **Data type support**
+  - [ ] DataFrames
 - **Solvers**
   - [ ] Ensure Optim.jl can remain the go-to solution. Not sure if it can handle stochastic / mini-batch, parallel operations, etc. Should look into the state of StochasticOptimization.
 - **Supervised Algorithms**
