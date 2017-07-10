@@ -116,8 +116,8 @@ ROC Curve
 
 """
 struct ROCCurve
-    charX::Function=false_positive_rate
-    charY::Function=true_positive_rate
+    charX::Function
+    charY::Function
     x_vals::Vector{AbstractFloat}
     y_vals::Vector{AbstractFloat}
     xlabel::AbstractString
@@ -133,6 +133,7 @@ struct ROCCurve
         fundesc = string(yl, " ~ ", xl)
         new(charX, charY, xv, yv, xl, yl, fundesc)
     end
+    
 end
 
 
@@ -187,7 +188,7 @@ end
 Returns length of (y==1) ∩ (ŷ==1)
 """
 function true_positives(actual, predicted)::Int
-    return sum((actual .== 1) .& (predicted .== 1))
+    sum(actual .== 1 .== predicted)
 end
 
 tp = true_positives
@@ -198,7 +199,7 @@ tp = true_positives
 Returns length of (y==0) ∩ (ŷ==1)
 """
 function false_positives(actual, predicted)::Int
-    return sum((predicted .== 1) .& (actual .== 0))
+    sum(actual .== 0 .!= predicted)
 end
 
 fp = false_positives
@@ -209,7 +210,7 @@ fp = false_positives
 Returns length of (y==0) ∩ (ŷ==0)
 """
 function true_negatives(actual, predicted)::Int
-    return sum((actual .== 0) .& (predicted .== 0))
+    sum(actual .== 0 .== predicted)
 end
 
 tn = true_negatives
@@ -220,7 +221,7 @@ tn = true_negatives
 Returns length of (y==1) ∩ (ŷ==0)
 """
 function false_negatives(actual, predicted)::Int
-    return sum((predicted .== 0) .& (actual .== 1))
+    sum(actual .== 1 .!= predicted)
 end
 
 fn = false_negatives
@@ -253,11 +254,7 @@ classification_error(actual, predicted)
 
 """
 function classification_error(actual, predicted)
-    if size(actual,2) > 1 && length(actual) > 1
-        actual = unhot(actual)
-        predicted = unhot(predicted)
-    end
-    return sum(actual .!= predicted) / size(actual,1)
+    1.0 - sum(actual .== predicted)/length(actual)
 end
 
 """
