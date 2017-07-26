@@ -9,7 +9,7 @@ using   Reexport
 using   Optim
 
 export  Model,
-          Algorithm,
+          Architecture,
             LinearRegression,
             LogisticRegression,
           Objective,
@@ -82,7 +82,7 @@ export  Model,
             tpr
 
 # Parent types
-abstract type Algorithm end
+abstract type Architecture end
 abstract type Objective end
 abstract type Solver end
 
@@ -92,7 +92,7 @@ include(joinpath("objectives", "objectives.jl"))
 
 mutable struct Model
   weights::AbstractVecOrMat
-  algorithm::A where A <: Algorithm
+  architecture::A where A <: Architecture
   objective::O where O <: Objective
   penalty::P where P <: Penalty
   solver::S where S <: Solver

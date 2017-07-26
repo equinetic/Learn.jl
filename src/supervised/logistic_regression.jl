@@ -1,4 +1,4 @@
-type LogisticRegression <: Algorithm end
+type LogisticRegression <: Architecture end
 
 function Model(a::LogisticRegression)::Model
   Model([], LogisticRegression(), Logit(), Penalty(), GradientDescent())

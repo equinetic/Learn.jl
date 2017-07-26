@@ -1,4 +1,4 @@
-type LinearRegression <: Algorithm end
+type LinearRegression <: Architecture end
 
 function Model(a::LinearRegression)::Model
   Model([], LinearRegression(), MSE(), Penalty(), GradientDescent())
